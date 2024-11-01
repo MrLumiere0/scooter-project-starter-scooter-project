@@ -47,9 +47,9 @@ test('requestRepair method should repair scooter after 5 seconds', () => {
   }, 5000);
 })
   //charge method
-  test('charge method should charge scooter to 100% in increments of 10%', () => {
+  test('recharge method should charge scooter to 100% in increments of 10%', () => {
     scooter.charge = 50;
-    scooter.charge1();
+    scooter.recharge();
     setTimeout(() => {
       expect(scooter.charge).toBe(100);
     }, 5000);

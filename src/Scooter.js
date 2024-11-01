@@ -23,7 +23,7 @@ dock(station){
   //console.log('Scooter docked at ' + station)
   }
 
-  async charge1() {
+  async recharge() {
     console.log('Starting charge');
     while(this.charge < 100) {
       await new Promise(resolve => setTimeout(resolve, 1000)); 
