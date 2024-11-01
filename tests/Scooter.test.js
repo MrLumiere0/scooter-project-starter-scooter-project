@@ -4,21 +4,29 @@ const User = require('../src/User')
 //typeof scooter === object
 describe('scooter object', () => {
   test('Scooter class should create Scooter instance', () => {
-    const scooter = new Scooter();
-    expect(scooter).toBeInstanceOf(Scooter);
+    const scooter1 = new Scooter();
+    expect(scooter1).toBeInstanceOf(Scooter);
+  });
+  test('Scooter user should be set to null', () => {
+    const scooter2 = new Scooter();
+    expect(scooter2.user).toBe(null);
+  });
+  test('Scooter serial number should start at one and increment for each new Scooter', () => {
+    const scooter3 = new Scooter();
+    expect(scooter3.serial).toBe(4);
   });
 })
 
 //Method tests
 describe('scooter methods', () => {
   // tests here!
-  const scooter = new Scooter('downtown', 'joe', 1, 100, false);
+  const scooter = new Scooter('downtown');
   //rent method
   test('rent method should rent scooter to user', () => {
     scooter.rent('joe');
     expect(scooter.user).toBe('joe');
   });
-  test('rent method should throw error if charge is less than 20', () => {
+  test('rent method should throw error if charge is less than or equal to 20', () => {
     scooter.charge = 10;
     expect(() => {
       scooter.rent('joe');
@@ -39,7 +47,7 @@ describe('scooter methods', () => {
   });
 
   //requestRepair method
-test('requestRepair method should repair scooter', () => {
+test('requestRepair method should repair scooter after 5 seconds', () => {
   scooter.isBroken = true;
   scooter.requestRepair();
   setTimeout(() => {
@@ -47,9 +55,9 @@ test('requestRepair method should repair scooter', () => {
   }, 5000);
 })
   //charge method
-  test('charge method should charge scooter to 100%', () => {
+  test('recharge method should charge scooter to 100% in increments of 10%', () => {
     scooter.charge = 50;
-    scooter.charge1();
+    scooter.recharge();
     setTimeout(() => {
       expect(scooter.charge).toBe(100);
     }, 5000);
