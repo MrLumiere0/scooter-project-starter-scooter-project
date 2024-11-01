@@ -4,8 +4,16 @@ const User = require('../src/User')
 //typeof scooter === object
 describe('scooter object', () => {
   test('Scooter class should create Scooter instance', () => {
-    const scooter = new Scooter();
-    expect(scooter).toBeInstanceOf(Scooter);
+    const scooter1 = new Scooter();
+    expect(scooter1).toBeInstanceOf(Scooter);
+  });
+  test('Scooter user should be set to null', () => {
+    const scooter2 = new Scooter();
+    expect(scooter2.user).toBe(null);
+  });
+  test('Scooter serial number should start at one and increment for each new Scooter', () => {
+    const scooter3 = new Scooter();
+    expect(scooter3.serial).toBe(4);
   });
 })
 
