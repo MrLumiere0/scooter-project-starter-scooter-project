@@ -14,7 +14,7 @@ describe('scooter object', () => {
   test('Scooter serial number should start at one and increment for each new Scooter', () => {
     const scooter3 = new Scooter();
     expect(scooter3.serial).toBe(4);
-  });
+  }); 
 })
 
 //Method tests
@@ -47,20 +47,20 @@ describe('scooter methods', () => {
   });
 
   //requestRepair method
-test('requestRepair method should repair scooter after 5 seconds', () => {
-  scooter.isBroken = true;
-  scooter.requestRepair();
-  setTimeout(() => {
-    expect(scooter.isBroken).toBe(false);
-  }, 5000);
-})
-  //charge method
-  test('recharge method should charge scooter to 100% in increments of 10%', () => {
-    scooter.charge = 50;
-    scooter.recharge();
-    setTimeout(() => {
-      expect(scooter.charge).toBe(100);
-    }, 5000);
-  });
+// test('requestRepair method should repair scooter after 5 seconds', () => {
+//   scooter.isBroken = true;
+//   scooter.requestRepair();
+//   setTimeout(() => {
+//     expect(scooter.isBroken).toBe(false);
+//   }, 5000);
+// })
+//   //charge method
+//   test('recharge method should charge scooter to 100% in increments of 10%', () => {
+//     scooter.charge = 50;
+//     scooter.recharge();
+//     setTimeout(() => {
+//       expect(scooter.charge).toBe(100);
+//     }, 5000);
+//   });
 
 })

@@ -23,21 +23,21 @@ dock(station){
   //console.log('Scooter docked at ' + station)
   }
 
-  async recharge() {
-    console.log('Starting charge');
-    while(this.charge < 100) {
-      await new Promise(resolve => setTimeout(resolve, 1000)); 
-      this.charge += 10;
-      if (this.charge > 100) this.charge = 100;
-        console.log('Charge is now at ' + this.charge + '%');
-    }
-     console.log('Charge complete');  
-}
-  requestRepair(){
-    setTimeout(() => {
-      this.isBroken = false
-      console.log('Scooter repaired')
-    }, 5000)
-  }
+//   async recharge() {
+//     console.log('Starting charge');
+//     while(this.charge < 100) {
+//       await new Promise(resolve => setTimeout(resolve, 1000)); 
+//       this.charge += 10;
+//       if (this.charge > 100) this.charge = 100;
+//         //console.log('Charge is now at ' + this.charge + '%');
+//     }
+//      console.log('Charge complete');  
+// }
+//   requestRepair(){
+//     setTimeout(() => {
+//       this.isBroken = false
+//       //console.log('Scooter repaired')
+//     }, 5000)
+//   }
 }
 module.exports = Scooter
