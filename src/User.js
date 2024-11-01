@@ -15,7 +15,7 @@ login(password)
     {
 
         this.#loggedIn = true;
-        return this.#loggedIn;
+        return true;
     }
     else if (password !== this.password)
     {
@@ -37,6 +37,7 @@ logout()
     else
     {
         this.#loggedIn = false;
+        return true;
 
     }
 }

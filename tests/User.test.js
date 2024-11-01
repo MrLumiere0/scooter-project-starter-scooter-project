@@ -30,11 +30,8 @@ test('should log the user out', () => {
     const user3 = new User('testUser', 'testPassword', 25);
 
     expect(user3.login('testPassword')).toBe(true); // Verify logged in
-    user3.logout();
-    expect(() => {
-        // Call the function that is expected to throw an error
-        user3.logout();
-    }).toThrow('You cannot logout as you are not logged in'); 
+    expect(user3.logout()).toBe(true);
+    
 });
 
 test('User cannot log out if not logged in', () => {
