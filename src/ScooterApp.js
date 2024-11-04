@@ -2,6 +2,7 @@ const User = require('./User')
 const Scooter = require('./Scooter')
 
 
+const Mario = new User("Mario", "pass", 30)
 class ScooterApp {
 
   constructor(){
@@ -10,13 +11,15 @@ class ScooterApp {
       Station2: [],
       Station3: []
      }
-    this.registeredUsers = { }
+    this.registeredUsers = { 
+      Mario:Mario
+     }
 
   }
 
   registerUser(username, password, age) {
     if (this.registeredUsers.hasOwnProperty(username)) {
-      console.log("User already registerd")
+      return "User already registerd"
     }
 
     else if(!this.registeredUsers.hasOwnProperty(username)){
@@ -27,32 +30,34 @@ class ScooterApp {
       //  Check logic if this works after merge
        else if (age >= 18){
         const user = new User(username, password, age)
-        const userName = user.username
-        this.registeredUsers.userName = user
-       return registeredUsers
+       return user
         
     }
   }
   
   }
 
-  async loginUser(username, password) {
-    if (this.registeredUsers.hasOwnProperty(username)) {
-      try {
-        await username.login(password)
-        console.log("User is logged in")
-
-      }
-
-      catch {
-        console.log("Username or password is incorrect")
-      }
+   loginUser(username, password) {
+    let userList = Object.keys(this.registeredUsers)
+    return (userList)
   
-    }
+    // if (this.userList.hasOwnProperty(username)) {
+    //   // try {
+    //     let index = this.registerUser(username)
+    //     console.log(index)
+    //     return (index)
 
-    else if (!this.registeredUsers.hasOwnProperty(username)) {
-      console.log("No such user is logged in")
-    }
+    //   // }
+
+    //   // catch {
+    //   //  return ("Username or password is incorrect")
+    //   // }
+  
+    // }
+
+    // else if (!this.u.hasOwnProperty(username)) {
+    //   return ("No such user is logged in")
+    // }
   }
 
    logoutUser(username) {
@@ -117,7 +122,7 @@ class ScooterApp {
             return scooter !== scooter 
           })
           scooter.user = user
-          console.log("scooter is rented")
+          console.log("scooter is")
         }
 
         catch{"error after station was validated"}
@@ -134,7 +139,7 @@ class ScooterApp {
 
 
 
-  const New = new (ScooterApp)
-  console.log(New.registerUser("Mario"))
+  // const New = new (ScooterApp)
+  // console.log(New.registerUser("Mario"))
 
 module.exports = ScooterApp

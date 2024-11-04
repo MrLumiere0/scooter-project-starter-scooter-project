@@ -10,13 +10,22 @@ describe("registerUser method tests", () => {
   test("Should return instance of User", () => {
     let response = scooterApp.registerUser("Joe Bloggs", "test123", 21);
     expect(response).toBeInstanceOf(User);
-  });
-});
 
-// log in
+
+  });
+
+// Log in
+
+
+
 
 // log out
+
+
+
+})
 
 // rent scooter
 
 // dock scooter
+
