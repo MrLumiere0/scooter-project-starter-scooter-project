@@ -3,6 +3,8 @@ const Scooter = require('./Scooter')
 
 
 const Mario = new User("Mario", "pass", 30)
+
+
 class ScooterApp {
 
   constructor(){
@@ -12,7 +14,7 @@ class ScooterApp {
       Station3: []
      }
     this.registeredUsers = { 
-      Mario:Mario
+      "Mario":Mario
      }
 
   }
@@ -29,7 +31,7 @@ class ScooterApp {
 
       //  Check logic if this works after merge
        else if (age >= 18){
-        const user = new User(username, password, age)
+       const user = new User(username, password, age)
        return user
         
     }
@@ -37,27 +39,23 @@ class ScooterApp {
   
   }
 
-   loginUser(username, password) {
-    let userList = Object.keys(this.registeredUsers)
-    return (userList)
+   loginUser(username, password) {  
+      if (this.registeredUsers.hasOwnProperty(username)) {
+        try {
+           username.login(password)
+          return ("User is logged in")
   
-    // if (this.userList.hasOwnProperty(username)) {
-    //   // try {
-    //     let index = this.registerUser(username)
-    //     console.log(index)
-    //     return (index)
+        }
 
-    //   // }
-
-    //   // catch {
-    //   //  return ("Username or password is incorrect")
-    //   // }
+      catch {
+       return ("Username or password is incorrect")
+      }
   
-    // }
+    }
 
-    // else if (!this.u.hasOwnProperty(username)) {
-    //   return ("No such user is logged in")
-    // }
+    else if (!this.u.hasOwnProperty(username)) {
+      return ("No such user is logged in")
+    }
   }
 
    logoutUser(username) {
