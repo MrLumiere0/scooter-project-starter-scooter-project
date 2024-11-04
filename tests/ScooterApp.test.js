@@ -21,22 +21,35 @@ test("Can login User correctly", () => {
   let response = scooterApp.loginUser(user, pass)
   expect(response).toBe("User is logged in")
 
-
-
   });
-
-// Log in
-
-
-
 
 // log out
 
-
-
+test("Can logout user correctly", () =>{
+  const user = "Mario";
+  // const user = "Luigi";
+  let response = scooterApp.logoutUser(user)
+  expect(response).toBe("User is logged out")
 })
+
+
+//dock scooter
+test("Can dock Scooter", () => {
+  const newScoo = new Scooter("station1")
+  const station = "station4"
+  let response = scooterApp.dockScooter(newScoo,station)
+  expect(response).toBe("No such station")
+})
+
 
 // rent scooter
 
-// dock scooter
+test("Can rent Scooter", () => {
+  const newScoo = new Scooter(null)
+  const Mario = new User("Mario", "pass", 30)
+  let response = scooterApp.rentScooter(newScoo,Mario)
+  expect(response).toBe("Scooter is rented")
+})
+
+})
 
